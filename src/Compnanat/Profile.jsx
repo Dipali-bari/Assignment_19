@@ -17,13 +17,26 @@ function Profile() {
   },[]);
 
   function deleteitem(index){
-    console.log("hello")
+
+    axios.delete(`http://localhost:5001/cart/${index}`).then((res)=>{
+
     var filterdata = cart.filter((e , i)=>{
-        return index!=e;
+      return e.id!=index
 
-    });
+  });
 
-    setCart(filterdata);
+  setCart(filterdata);
+      
+
+    }).catch((error)=>{
+      console.log(error)
+    })
+
+    
+    
+    
+   
+    
 
 }
 
@@ -57,7 +70,7 @@ function Profile() {
                   <h3>Title:{e.title}</h3>
                   <p><b>Decription:</b>{e.description}</p>
                   <h4 style={{ color: "red" }}>Price:{e.price}</h4>
-                  <button style={{backgroundColor:"lightgreen" , padding:"7px"}} onClick={()=>deleteitem(e)}>Remove</button>
+                  <button style={{backgroundColor:"lightgreen" , padding:"7px"}} onClick={()=>deleteitem(e.id)}>Remove</button>
 
                   </td>
                   
