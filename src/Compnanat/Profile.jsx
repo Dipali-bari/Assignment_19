@@ -6,7 +6,7 @@ function Profile() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5001/cart")
+      .get("http://localhost:3000/cart")
       .then((res) => {
         console.log(res.data);
         setCart(res.data);
@@ -18,7 +18,7 @@ function Profile() {
 
   function deleteitem(index){
 
-    axios.delete(`http://localhost:5001/cart/${index}`).then((res)=>{
+    axios.delete(`http://localhost:3000/cart/${index}`).then((res)=>{
 
     var filterdata = cart.filter((e , i)=>{
       return e.id!=index

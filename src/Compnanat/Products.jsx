@@ -11,7 +11,7 @@ function Products() {
   useEffect(() => {
     function getProduct() {
       axios
-        .get("http://localhost:5001/data")
+        .get("http://localhost:3000/data")
         .then((res) => {
           console.log(res.data);
           setProduct(res.data);
@@ -26,7 +26,7 @@ function Products() {
   function Server(data){
 
     //console.log("server" , data)
-    return axios.post("http://localhost:5001/cart" , data)
+    return axios.post("http://localhost:3000/cart" , data)
   }
 
   const addToCart = (e) => {
